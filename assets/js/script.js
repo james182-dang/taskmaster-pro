@@ -222,7 +222,6 @@ $(".list-group").on("change", "input[type='text']", function() {
   // get current text
   var date = $(this)
     .val()
-    .trim();
 
   // get the parent ul's id attribute
   var status = $(this)
@@ -246,6 +245,9 @@ $(".list-group").on("change", "input[type='text']", function() {
 
   // replace input with span element
   $(this).replaceWith(taskSpan);
+
+  // Pass task's <li> element into auditTask() to check new due date
+  auditTask($(taskSpan).closest(".list-group-item"));
 });
 
 // modal was triggered
