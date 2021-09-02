@@ -161,6 +161,24 @@ $(".card .list-group").sortable({
   }
 });
 
+// make that trash thing DROPPABLE baby! We're deleting things 1 at a time
+// in this house!
+
+$("#trash").droppable({
+  accept: ".card .list-group-item",
+  tolerance: "touch",
+  drop: function(event, ui) {
+    ui.draggable.remove();
+    console.log("drop");
+  },
+  over: function(event, ui) {
+    console.log("over");
+  },
+  out: function(event, ui) {
+    console.log("out");
+  }
+});
+
 // value of due date was changed
 $(".list-group").on("blur", "input[type='text']", function() {
   // get current text
